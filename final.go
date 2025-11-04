@@ -13,7 +13,7 @@ func main() {
 			continue
 		}
 
-		if input == "очередь" {
+		if input == "queue" {
 			for i := 0; i < 5; i++ {
 				if queue[i] == "" {
 					fmt.Printf("%d. -\n", i+1)
@@ -24,7 +24,7 @@ func main() {
 			continue
 		}
 
-		if input == "количество" {
+		if input == "count" {
 			free := 0
 			occupied := 0
 			for i := 0; i < 5; i++ {
@@ -34,12 +34,12 @@ func main() {
 					occupied++
 				}
 			}
-			fmt.Printf("Осталось свободных мест: %d\n", free)
-			fmt.Printf("Всего человек в очереди: %d\n", occupied)
+			fmt.Printf("Free spots left: %d\n", free)
+			fmt.Printf("Total people in queue: %d\n", occupied)
 			continue
 		}
 
-		if input == "конец" {
+		if input == "end" {
 			for i := 0; i < 5; i++ {
 				if queue[i] == "" {
 					fmt.Printf("%d. -\n", i+1)
@@ -53,14 +53,14 @@ func main() {
 		var num int
 		_, err := fmt.Scan(&num)
 		if err != nil {
-			fmt.Printf("Запись на место номер %d невозможна: \n", num)
-			fmt.Printf("некорректный ввод")
+			fmt.Printf("Recording to spot number %d is impossible: ", num)
+			fmt.Printf("invalid input\n")
 			continue
 		}
 
 		if num < 1 || num > 5 {
-			fmt.Printf("Запись на место номер %d невозможна: \n", num)
-			fmt.Printf("некорректный ввод")
+			fmt.Printf("Recording to spot number %d is impossible: ", num)
+			fmt.Printf("invalid input\n")
 			continue
 		}
 
@@ -71,14 +71,14 @@ func main() {
 			}
 		}
 		if freeSlots == 0 {
-			fmt.Printf("Запись на место номер %d невозможна: \n", num)
-			fmt.Printf("очередь переполнена")
+			fmt.Printf("Recording to spot number %d is impossible: ", num)
+			fmt.Printf("queue is full\n")
 			continue
 		}
 
 		if queue[num-1] != "" {
-			fmt.Printf("Запись на место номер %d невозможна: \n", num)
-			fmt.Printf("место уже занято")
+			fmt.Printf("Recording to spot number %d is impossible: ", num)
+			fmt.Printf("spot is already taken\n")
 			continue
 		}
 
